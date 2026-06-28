@@ -1,0 +1,885 @@
+/* ==========================
+   Google Font
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    background:#0f172a;
+
+}
+
+/* ==========================
+   Animated Background
+========================== */
+
+.background{
+
+    position:fixed;
+
+    width:100%;
+
+    height:100%;
+
+    background:linear-gradient(
+        -45deg,
+        #2563eb,
+        #9333ea,
+        #06b6d4,
+        #3b82f6
+    );
+
+    background-size:400% 400%;
+
+    animation:bg 12s ease infinite;
+
+    z-index:-2;
+
+}
+
+@keyframes bg{
+
+0%{
+
+background-position:0% 50%;
+
+}
+
+50%{
+
+background-position:100% 50%;
+
+}
+
+100%{
+
+background-position:0% 50%;
+
+}
+
+}
+
+/* ==========================
+Glass Container
+========================== */
+
+.chat-container{
+
+    width:92%;
+
+    max-width:900px;
+
+    height:92vh;
+
+    backdrop-filter:blur(20px);
+
+    background:rgba(255,255,255,.12);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    border-radius:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    overflow:hidden;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+}
+
+/* ==========================
+Header
+========================== */
+
+header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 24px;
+
+    border-bottom:1px solid rgba(255,255,255,.15);
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.logo-circle{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    background:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:26px;
+
+}
+
+.logo h2{
+
+    color:white;
+
+    font-weight:600;
+
+}
+
+.logo p{
+
+    color:#dbeafe;
+
+    font-size:13px;
+
+}
+
+.header-buttons{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+.header-buttons button{
+
+    width:45px;
+
+    height:45px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+.header-buttons button:hover{
+
+    transform:scale(1.1);
+
+}
+
+/* ==========================
+Chat Area
+========================== */
+
+#chat{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    padding:30px;
+
+    scroll-behavior:smooth;
+
+}
+
+#chat::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+#chat::-webkit-scrollbar-thumb{
+
+    background:white;
+
+    border-radius:20px;
+
+}
+
+/* ==========================
+Welcome
+========================== */
+
+.welcome{
+
+    text-align:center;
+
+    color:white;
+
+    margin-top:50px;
+
+}
+
+.welcome-icon{
+
+    width:90px;
+
+    height:90px;
+
+    background:white;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin:auto;
+
+    font-size:45px;
+
+}
+
+.welcome h1{
+
+    margin-top:20px;
+
+    font-size:40px;
+
+}
+
+.welcome p{
+
+    margin-top:10px;
+
+    opacity:.9;
+
+}
+
+/* ==========================
+Suggestions
+========================== */
+
+.suggestions{
+
+    margin-top:35px;
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:15px;
+
+}
+
+.suggestion{
+
+    padding:12px 18px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.18);
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.suggestion:hover{
+
+    background:white;
+
+    color:#2563eb;
+
+    transform:translateY(-3px);
+
+}
+/* ==========================
+   Messages
+========================== */
+
+.message-row{
+    display:flex;
+    margin:18px 0;
+    animation:fadeIn .35s ease;
+}
+
+.message-row.user{
+    justify-content:flex-end;
+}
+
+.message-row.bot{
+    justify-content:flex-start;
+}
+
+.avatar{
+
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:22px;
+
+    background:white;
+
+    margin-right:12px;
+
+    flex-shrink:0;
+
+}
+
+.user .avatar{
+    display:none;
+}
+
+.message{
+
+    max-width:75%;
+
+    padding:14px 18px;
+
+    line-height:1.7;
+
+    border-radius:18px;
+
+    word-break:break-word;
+
+    position:relative;
+
+    font-size:15px;
+
+}
+
+.bot .message{
+
+    background:white;
+
+    color:#222;
+
+    border-top-left-radius:5px;
+
+}
+
+.user .message{
+
+    background:#2563eb;
+
+    color:white;
+
+    border-top-right-radius:5px;
+
+}
+
+/* ==========================
+Time
+========================== */
+
+.time{
+
+    font-size:11px;
+
+    opacity:.6;
+
+    margin-top:8px;
+
+    text-align:right;
+
+}
+
+/* ==========================
+Copy Button
+========================== */
+
+.copy-btn{
+
+    margin-top:10px;
+
+    border:none;
+
+    background:#eef2ff;
+
+    color:#2563eb;
+
+    padding:7px 12px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-size:13px;
+
+}
+
+.copy-btn:hover{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+/* ==========================
+Typing
+========================== */
+
+.typing{
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 30px 15px;
+
+}
+
+.hidden{
+
+    display:none;
+
+}
+
+.bot-avatar{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-right:12px;
+
+}
+
+.typing-bubble{
+
+    background:white;
+
+    padding:15px 18px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    gap:6px;
+
+}
+
+.typing-bubble span{
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#777;
+
+    animation:typing 1.2s infinite;
+
+}
+
+.typing-bubble span:nth-child(2){
+
+    animation-delay:.2s;
+
+}
+
+.typing-bubble span:nth-child(3){
+
+    animation-delay:.4s;
+
+}
+
+@keyframes typing{
+
+0%{
+
+transform:translateY(0);
+
+opacity:.4;
+
+}
+
+50%{
+
+transform:translateY(-5px);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(0);
+
+opacity:.4;
+
+}
+
+}
+
+/* ==========================
+Input Area
+========================== */
+
+.input-area{
+
+    display:flex;
+
+    gap:12px;
+
+    padding:18px;
+
+    border-top:1px solid rgba(255,255,255,.15);
+
+    backdrop-filter:blur(10px);
+
+}
+
+.input-area input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    padding:15px 20px;
+
+    border-radius:35px;
+
+    font-size:15px;
+
+}
+
+.input-area button{
+
+    width:60px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.input-area button:hover{
+
+    transform:scale(1.08);
+
+}
+
+.input-area button:disabled{
+
+    opacity:.5;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+}
+
+/* ==========================
+Footer
+========================== */
+
+footer{
+
+    text-align:center;
+
+    padding:10px;
+
+    font-size:12px;
+
+    color:white;
+
+    opacity:.8;
+
+}
+
+/* ==========================
+Dark Theme
+========================== */
+
+.dark{
+
+    background:#020617;
+
+}
+
+.dark .chat-container{
+
+    background:rgba(15,23,42,.7);
+
+}
+
+.dark .message{
+
+    color:white;
+
+}
+
+.dark .bot .message{
+
+    background:#1e293b;
+
+}
+
+.dark .input-area input{
+
+    background:#0f172a;
+
+    color:white;
+
+}
+
+.dark .typing-bubble{
+
+    background:#1e293b;
+
+}
+
+.dark .copy-btn{
+
+    background:#334155;
+
+    color:white;
+
+}
+
+/* ==========================
+Animations
+========================== */
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(15px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* Floating container */
+
+.chat-container{
+
+    animation:float 6s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+
+/* ==========================
+Responsive
+========================== */
+
+@media(max-width:768px){
+
+.chat-container{
+
+width:100%;
+
+height:100vh;
+
+border-radius:0;
+
+}
+
+.logo h2{
+
+font-size:20px;
+
+}
+
+.logo-circle{
+
+width:45px;
+
+height:45px;
+
+font-size:22px;
+
+}
+
+.message{
+
+max-width:90%;
+
+font-size:14px;
+
+}
+
+.suggestions{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+.suggestion{
+
+width:90%;
+
+}
+
+header{
+
+padding:15px;
+
+}
+
+.input-area{
+
+padding:12px;
+
+}
+
+.input-area input{
+
+padding:14px;
+
+}
+
+}
+
+@media(max-width:500px){
+
+.welcome h1{
+
+font-size:30px;
+
+}
+
+.welcome-icon{
+
+width:70px;
+
+height:70px;
+
+font-size:35px;
+
+}
+
+.logo p{
+
+display:none;
+
+}
+
+}
+footer{
+
+    text-align:center;
+
+    padding:15px;
+
+    color:white;
+
+    opacity:.85;
+
+    font-size:14px;
+
+}
+
+footer small{
+
+    display:block;
+
+    margin-top:5px;
+
+    font-size:12px;
+
+    opacity:.8;
+
+}
